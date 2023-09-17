@@ -1,15 +1,21 @@
-import Control from "./Control.js";
+import Control, { UP, DOWN } from "./Control.js";
+
+const KEY_UP = 'ArrowUp';
+const KEY_DOWN = 'ArrowDown';
 
 class ControlKeyboard extends Control {
     #keys = {};
-    #actionList = {
-        "up": "ArrowUp",
-        "down": "ArrowDown",
-    }
+    #actionList = {};
 
     constructor() {
         super();
+        this.setAction(KEY_UP, UP);
+        this.setAction(KEY_DOWN, DOWN);
         this.#addEvents();
+    }
+
+    setAction(key, action) {
+        this.#actionList[action] = key;
     }
 
     action(actionName) {
@@ -28,5 +34,7 @@ class ControlKeyboard extends Control {
         });
     }
 }
+
+export { KEY_UP, KEY_DOWN };
 
 export default ControlKeyboard;
