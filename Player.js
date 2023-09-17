@@ -1,4 +1,4 @@
-import Control from "./Control.js";
+import Control, { DOWN, UP } from "./Control.js";
 import LivingCreature from "./LivingCreature.js";
 
 class Player extends LivingCreature {
@@ -13,8 +13,8 @@ class Player extends LivingCreature {
     }
 
     update() {
-        if (this.#control.action('up')) this.up();
-        if (this.#control.action('down')) this.down();
+        if (this.#control.action(UP)) this.up();
+        if (this.#control.action(DOWN)) this.down();
     }
 
 }
